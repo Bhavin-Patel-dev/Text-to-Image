@@ -7,8 +7,7 @@ function useImageGeneration() {
   const [imageURL, setImageURL] = useState("");
 
   const API_KEY = process.env.REACT_APP_API_KEY;
-  const API_URL =
-    "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-schnell";
+  const API_URL = "/api/generate";
 
   const generateImage = async () => {
     if (!inputText.trim()) {
@@ -28,7 +27,6 @@ function useImageGeneration() {
       const response = await fetch(API_URL, {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${API_KEY}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
