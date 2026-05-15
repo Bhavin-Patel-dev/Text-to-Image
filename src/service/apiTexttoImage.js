@@ -39,6 +39,7 @@ function useImageGeneration() {
       }
 
       const blob = await response.blob();
+      console.log("Blob size:", blob.size, "Blob type:", blob.type);
       const imageObjectURL = URL.createObjectURL(blob);
       console.log(imageObjectURL);
       setImageURL(imageObjectURL);
