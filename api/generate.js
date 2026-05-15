@@ -30,6 +30,11 @@ export default async function handler(req, res) {
   }
 
   const buffer = await response.arrayBuffer();
+
+  // Temporarily log what HF is returning
+  const text = Buffer.from(buffer).toString("utf-8");
+  console.log("HF Response:", text);
+
   res.setHeader("Content-Type", "image/jpeg");
   res.send(Buffer.from(buffer));
 }
